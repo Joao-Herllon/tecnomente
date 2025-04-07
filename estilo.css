@@ -27,7 +27,9 @@ body {
   }
   
   main {
-    padding: 2rem;
+    padding: 20px;
+    min-height: 80vh; /* Garante que tenha altura suficiente */
+    overflow: hidden; /* Remove scroll se não for necessário */
   }
   
   .post {
@@ -52,6 +54,7 @@ body {
     from {
       opacity: 0;
       transform: translateY(-20px);
+      transition: all 0.6s ease;
     }
     to {
       opacity: 1;
