@@ -7,16 +7,24 @@ botaoTema.onclick = () => {
 };
 document.body.insertBefore(botaoTema, document.body.firstChild);
 
-// Animação ao rolar
+// Seleciona os posts
 const posts = document.querySelectorAll(".post");
-window.addEventListener("scroll", () => {
+
+// Função para ativar posts visíveis
+function ativarPostsVisiveis() {
   posts.forEach(post => {
     const top = post.getBoundingClientRect().top;
     if (top < window.innerHeight - 100) {
       post.classList.add("ativo");
     }
   });
-});
+}
+
+// Ativa os posts visíveis ao rolar
+window.addEventListener("scroll", ativarPostsVisiveis);
+
+// Ativa os posts visíveis logo ao carregar (para telas pequenas ou sem rolagem)
+document.addEventListener("DOMContentLoaded", ativarPostsVisiveis);
 
 // Configuração Firebase
 const firebaseConfig = {
